@@ -220,10 +220,6 @@ If you use this repository or the associated analysis, please cite the correspon
 
 ## Authors
 
-Amrita Shaw
-Chandrasekar S. N.
-Sai Muthukumar V.
-Jhinuk Gupta
-Deepak L. N. Kallepalli
+Amrita Shaw, Chandrasekar S. N., Sai Muthukumar V., Jhinuk Gupta, Deepak L. N. Kallepalli
 
 
