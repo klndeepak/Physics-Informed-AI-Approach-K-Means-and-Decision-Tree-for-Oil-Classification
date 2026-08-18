@@ -151,7 +151,7 @@ Images/
     ├── Pre-pruned Decision Tree
     └── Post-pruned Decision Tree
 
-## Analysis Workflow:
+## Analysis Workflow
 
 Raman Spectral Data
         │
@@ -194,7 +194,7 @@ Fried-­Food Spectra
  Decision Tree Classification
 
 
-Key Findings
+## Key Findings
 
 The pure-oil Raman spectra showed stronger intrinsic class organization and greater spectral separability than the fried-food samples.
 
@@ -204,19 +204,19 @@ NNLS-based matrix correction improved classification performance for the chips d
 
 These results demonstrate the potential of combining Raman spectroscopy, unsupervised learning, interpretable Decision Trees, and Physics-Informed AI for computationally efficient analysis of complex food matrices.
 
-Reproducibility
+## Reproducibility
 
 All datasets, Jupyter notebooks, and generated figures required to reproduce the analyses presented in the study are provided in this repository.
 
 The notebooks can be executed in Jupyter Notebook or JupyterLab after installing the required Python packages.
 
-Citation
+## Citation
 
 If you use this repository or the associated analysis, please cite the corresponding research publication.
 
-Authors
+## Authors
 
-Amrita Shawa
+Amrita Shaw
 Chandrasekar S. N.
 Sai Muthukumar V.
 Jhinuk Gupta
