@@ -151,8 +151,11 @@ Images/
     ├── Pre-pruned Decision Tree
     └── Post-pruned Decision Tree
 
-## Analysis Workflow
+```
 
+## Analysis Workflow   
+
+```text
 Raman Spectral Data
         │
         ├── Pure Oils ────────────────┐
@@ -193,6 +196,7 @@ Fried-­Food Spectra
         ▼
  Decision Tree Classification
 
+```
 
 ## Key Findings
 
