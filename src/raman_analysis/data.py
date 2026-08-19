@@ -82,7 +82,6 @@ def report_spectrum_minimum(
     row_idx, col_idx = (spectra == min_value).stack().idxmax()
 
     print("Most negative value:", min_value)
-    print("Most negative value:", min_value)
     print("Row index:", row_idx)
     print("Wavenumber:", col_idx)
     return min_value, row_idx, col_idx

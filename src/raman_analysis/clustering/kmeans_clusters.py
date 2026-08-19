@@ -65,7 +65,7 @@ def plot_true_vs_cluster(
     sns.scatterplot(
         data=tsne_2d, x="Feature 1", y="Feature 2", hue="Cluster_Label", palette=palette
     )
-    plt.title("K-Means Clusters Visualized using t-SNE Projection onto 2D)")
+    plt.title("K-Means Clusters Visualized using t-SNE Projection onto 2D")
 
     plt.tight_layout()
     plt.savefig(out_path, dpi=dpi, bbox_inches="tight")

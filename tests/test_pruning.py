@@ -34,7 +34,7 @@ def test_grid_search_pre_pruned_returns_a_fitted_tree(toy_dataset):
     model, cv_results = pruning.grid_search_pre_pruned(X, y, RANDOM_STATE)
 
     assert hasattr(model, "predict")
-    assert (model.predict(X) is not None)
+    assert len(model.predict(X)) == len(X)
     assert list(cv_results.columns) == [
         "params", "mean_test_score", "std_test_score", "rank_test_score",
     ]
