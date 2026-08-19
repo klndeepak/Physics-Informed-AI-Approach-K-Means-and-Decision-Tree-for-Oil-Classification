@@ -1,0 +1,28 @@
+name: raman-analysis
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13.9
+  - pip
+  - pandas=2.3.3
+  - numpy=2.3.5
+  - matplotlib=3.10.6
+  - seaborn=0.13.2
+  - scikit-learn=1.7.2
+  - plotly=6.3.0
+  - pytest=9.1.1
+  - flake8=7.3.0
+  - pip:
+      - kaleido==1.1.0
+
+# Create and activate:
+#   conda env create -f environment.yml
+#   conda activate raman-analysis
+#   pip install -e .
+#
+# These exact versions are the ones every figure and metric in this
+# repository was regenerated and verified against (see README.md). Any
+# reasonably recent version of each package should still reproduce the
+# same classification/clustering results (all randomness is seeded),
+# but pinning removes even the small risk of a library-version-driven
+# numerical drift, and guarantees the same plot rendering.
