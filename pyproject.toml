@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "raman-analysis"
+version = "1.0.0"
+description = "Physics-informed K-Means and Decision Tree analysis of Raman spectra for edible oil classification"
+readme = "README.md"
+requires-python = ">=3.10"
+# Pinned to the exact versions every figure and metric in this repository
+# was regenerated and verified against (see README.md and environment.yml).
+dependencies = [
+    "pandas==2.3.3",
+    "numpy==2.3.5",
+    "matplotlib==3.10.6",
+    "seaborn==0.13.2",
+    "scikit-learn==1.7.2",
+    "plotly==6.3.0",
+    "kaleido==1.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+    "flake8==7.3.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.flake8]
+max-line-length = 99
+exclude = [".venv", "build", "dist"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
