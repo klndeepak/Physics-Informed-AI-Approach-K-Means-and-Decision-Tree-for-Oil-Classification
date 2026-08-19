@@ -1,0 +1,601 @@
+dataset,model,split,true_label,predicted_label,count
+oils,baseline,train,GNO,GNO,140
+oils,baseline,train,GNO,PO,0
+oils,baseline,train,GNO,SO,0
+oils,baseline,train,GNO,SOYO,0
+oils,baseline,train,GNO,VO,0
+oils,baseline,train,PO,GNO,0
+oils,baseline,train,PO,PO,140
+oils,baseline,train,PO,SO,0
+oils,baseline,train,PO,SOYO,0
+oils,baseline,train,PO,VO,0
+oils,baseline,train,SO,GNO,0
+oils,baseline,train,SO,PO,0
+oils,baseline,train,SO,SO,140
+oils,baseline,train,SO,SOYO,0
+oils,baseline,train,SO,VO,0
+oils,baseline,train,SOYO,GNO,0
+oils,baseline,train,SOYO,PO,0
+oils,baseline,train,SOYO,SO,0
+oils,baseline,train,SOYO,SOYO,140
+oils,baseline,train,SOYO,VO,0
+oils,baseline,train,VO,GNO,0
+oils,baseline,train,VO,PO,0
+oils,baseline,train,VO,SO,0
+oils,baseline,train,VO,SOYO,0
+oils,baseline,train,VO,VO,140
+oils,baseline,test,GNO,GNO,60
+oils,baseline,test,GNO,PO,0
+oils,baseline,test,GNO,SO,0
+oils,baseline,test,GNO,SOYO,0
+oils,baseline,test,GNO,VO,0
+oils,baseline,test,PO,GNO,0
+oils,baseline,test,PO,PO,60
+oils,baseline,test,PO,SO,0
+oils,baseline,test,PO,SOYO,0
+oils,baseline,test,PO,VO,0
+oils,baseline,test,SO,GNO,0
+oils,baseline,test,SO,PO,0
+oils,baseline,test,SO,SO,60
+oils,baseline,test,SO,SOYO,0
+oils,baseline,test,SO,VO,0
+oils,baseline,test,SOYO,GNO,0
+oils,baseline,test,SOYO,PO,0
+oils,baseline,test,SOYO,SO,0
+oils,baseline,test,SOYO,SOYO,60
+oils,baseline,test,SOYO,VO,0
+oils,baseline,test,VO,GNO,0
+oils,baseline,test,VO,PO,0
+oils,baseline,test,VO,SO,0
+oils,baseline,test,VO,SOYO,0
+oils,baseline,test,VO,VO,60
+oils,pre_pruned,train,GNO,GNO,140
+oils,pre_pruned,train,GNO,PO,0
+oils,pre_pruned,train,GNO,SO,0
+oils,pre_pruned,train,GNO,SOYO,0
+oils,pre_pruned,train,GNO,VO,0
+oils,pre_pruned,train,PO,GNO,0
+oils,pre_pruned,train,PO,PO,140
+oils,pre_pruned,train,PO,SO,0
+oils,pre_pruned,train,PO,SOYO,0
+oils,pre_pruned,train,PO,VO,0
+oils,pre_pruned,train,SO,GNO,0
+oils,pre_pruned,train,SO,PO,0
+oils,pre_pruned,train,SO,SO,140
+oils,pre_pruned,train,SO,SOYO,0
+oils,pre_pruned,train,SO,VO,0
+oils,pre_pruned,train,SOYO,GNO,0
+oils,pre_pruned,train,SOYO,PO,0
+oils,pre_pruned,train,SOYO,SO,0
+oils,pre_pruned,train,SOYO,SOYO,140
+oils,pre_pruned,train,SOYO,VO,0
+oils,pre_pruned,train,VO,GNO,0
+oils,pre_pruned,train,VO,PO,0
+oils,pre_pruned,train,VO,SO,0
+oils,pre_pruned,train,VO,SOYO,0
+oils,pre_pruned,train,VO,VO,140
+oils,pre_pruned,test,GNO,GNO,60
+oils,pre_pruned,test,GNO,PO,0
+oils,pre_pruned,test,GNO,SO,0
+oils,pre_pruned,test,GNO,SOYO,0
+oils,pre_pruned,test,GNO,VO,0
+oils,pre_pruned,test,PO,GNO,0
+oils,pre_pruned,test,PO,PO,60
+oils,pre_pruned,test,PO,SO,0
+oils,pre_pruned,test,PO,SOYO,0
+oils,pre_pruned,test,PO,VO,0
+oils,pre_pruned,test,SO,GNO,0
+oils,pre_pruned,test,SO,PO,0
+oils,pre_pruned,test,SO,SO,60
+oils,pre_pruned,test,SO,SOYO,0
+oils,pre_pruned,test,SO,VO,0
+oils,pre_pruned,test,SOYO,GNO,0
+oils,pre_pruned,test,SOYO,PO,0
+oils,pre_pruned,test,SOYO,SO,0
+oils,pre_pruned,test,SOYO,SOYO,60
+oils,pre_pruned,test,SOYO,VO,0
+oils,pre_pruned,test,VO,GNO,0
+oils,pre_pruned,test,VO,PO,0
+oils,pre_pruned,test,VO,SO,0
+oils,pre_pruned,test,VO,SOYO,0
+oils,pre_pruned,test,VO,VO,60
+oils,post_pruned,train,GNO,GNO,140
+oils,post_pruned,train,GNO,PO,0
+oils,post_pruned,train,GNO,SO,0
+oils,post_pruned,train,GNO,SOYO,0
+oils,post_pruned,train,GNO,VO,0
+oils,post_pruned,train,PO,GNO,0
+oils,post_pruned,train,PO,PO,140
+oils,post_pruned,train,PO,SO,0
+oils,post_pruned,train,PO,SOYO,0
+oils,post_pruned,train,PO,VO,0
+oils,post_pruned,train,SO,GNO,0
+oils,post_pruned,train,SO,PO,0
+oils,post_pruned,train,SO,SO,140
+oils,post_pruned,train,SO,SOYO,0
+oils,post_pruned,train,SO,VO,0
+oils,post_pruned,train,SOYO,GNO,0
+oils,post_pruned,train,SOYO,PO,0
+oils,post_pruned,train,SOYO,SO,0
+oils,post_pruned,train,SOYO,SOYO,140
+oils,post_pruned,train,SOYO,VO,0
+oils,post_pruned,train,VO,GNO,0
+oils,post_pruned,train,VO,PO,0
+oils,post_pruned,train,VO,SO,0
+oils,post_pruned,train,VO,SOYO,0
+oils,post_pruned,train,VO,VO,140
+oils,post_pruned,test,GNO,GNO,60
+oils,post_pruned,test,GNO,PO,0
+oils,post_pruned,test,GNO,SO,0
+oils,post_pruned,test,GNO,SOYO,0
+oils,post_pruned,test,GNO,VO,0
+oils,post_pruned,test,PO,GNO,0
+oils,post_pruned,test,PO,PO,60
+oils,post_pruned,test,PO,SO,0
+oils,post_pruned,test,PO,SOYO,0
+oils,post_pruned,test,PO,VO,0
+oils,post_pruned,test,SO,GNO,0
+oils,post_pruned,test,SO,PO,0
+oils,post_pruned,test,SO,SO,60
+oils,post_pruned,test,SO,SOYO,0
+oils,post_pruned,test,SO,VO,0
+oils,post_pruned,test,SOYO,GNO,0
+oils,post_pruned,test,SOYO,PO,0
+oils,post_pruned,test,SOYO,SO,0
+oils,post_pruned,test,SOYO,SOYO,60
+oils,post_pruned,test,SOYO,VO,0
+oils,post_pruned,test,VO,GNO,0
+oils,post_pruned,test,VO,PO,0
+oils,post_pruned,test,VO,SO,0
+oils,post_pruned,test,VO,SOYO,0
+oils,post_pruned,test,VO,VO,60
+chips,baseline,train,GNO C,GNO C,126
+chips,baseline,train,GNO C,PO C,0
+chips,baseline,train,GNO C,SO C,0
+chips,baseline,train,GNO C,SOYO C,0
+chips,baseline,train,GNO C,VO C,0
+chips,baseline,train,PO C,GNO C,0
+chips,baseline,train,PO C,PO C,126
+chips,baseline,train,PO C,SO C,0
+chips,baseline,train,PO C,SOYO C,0
+chips,baseline,train,PO C,VO C,0
+chips,baseline,train,SO C,GNO C,0
+chips,baseline,train,SO C,PO C,0
+chips,baseline,train,SO C,SO C,126
+chips,baseline,train,SO C,SOYO C,0
+chips,baseline,train,SO C,VO C,0
+chips,baseline,train,SOYO C,GNO C,0
+chips,baseline,train,SOYO C,PO C,0
+chips,baseline,train,SOYO C,SO C,0
+chips,baseline,train,SOYO C,SOYO C,126
+chips,baseline,train,SOYO C,VO C,0
+chips,baseline,train,VO C,GNO C,0
+chips,baseline,train,VO C,PO C,0
+chips,baseline,train,VO C,SO C,0
+chips,baseline,train,VO C,SOYO C,0
+chips,baseline,train,VO C,VO C,126
+chips,baseline,test,GNO C,GNO C,27
+chips,baseline,test,GNO C,PO C,4
+chips,baseline,test,GNO C,SO C,13
+chips,baseline,test,GNO C,SOYO C,10
+chips,baseline,test,GNO C,VO C,0
+chips,baseline,test,PO C,GNO C,6
+chips,baseline,test,PO C,PO C,34
+chips,baseline,test,PO C,SO C,6
+chips,baseline,test,PO C,SOYO C,1
+chips,baseline,test,PO C,VO C,7
+chips,baseline,test,SO C,GNO C,12
+chips,baseline,test,SO C,PO C,3
+chips,baseline,test,SO C,SO C,30
+chips,baseline,test,SO C,SOYO C,8
+chips,baseline,test,SO C,VO C,1
+chips,baseline,test,SOYO C,GNO C,5
+chips,baseline,test,SOYO C,PO C,4
+chips,baseline,test,SOYO C,SO C,14
+chips,baseline,test,SOYO C,SOYO C,31
+chips,baseline,test,SOYO C,VO C,0
+chips,baseline,test,VO C,GNO C,1
+chips,baseline,test,VO C,PO C,5
+chips,baseline,test,VO C,SO C,0
+chips,baseline,test,VO C,SOYO C,1
+chips,baseline,test,VO C,VO C,47
+chips,pre_pruned,train,GNO C,GNO C,106
+chips,pre_pruned,train,GNO C,PO C,0
+chips,pre_pruned,train,GNO C,SO C,6
+chips,pre_pruned,train,GNO C,SOYO C,14
+chips,pre_pruned,train,GNO C,VO C,0
+chips,pre_pruned,train,PO C,GNO C,3
+chips,pre_pruned,train,PO C,PO C,118
+chips,pre_pruned,train,PO C,SO C,3
+chips,pre_pruned,train,PO C,SOYO C,2
+chips,pre_pruned,train,PO C,VO C,0
+chips,pre_pruned,train,SO C,GNO C,14
+chips,pre_pruned,train,SO C,PO C,1
+chips,pre_pruned,train,SO C,SO C,93
+chips,pre_pruned,train,SO C,SOYO C,18
+chips,pre_pruned,train,SO C,VO C,0
+chips,pre_pruned,train,SOYO C,GNO C,7
+chips,pre_pruned,train,SOYO C,PO C,0
+chips,pre_pruned,train,SOYO C,SO C,12
+chips,pre_pruned,train,SOYO C,SOYO C,104
+chips,pre_pruned,train,SOYO C,VO C,3
+chips,pre_pruned,train,VO C,GNO C,0
+chips,pre_pruned,train,VO C,PO C,8
+chips,pre_pruned,train,VO C,SO C,2
+chips,pre_pruned,train,VO C,SOYO C,3
+chips,pre_pruned,train,VO C,VO C,113
+chips,pre_pruned,test,GNO C,GNO C,27
+chips,pre_pruned,test,GNO C,PO C,3
+chips,pre_pruned,test,GNO C,SO C,11
+chips,pre_pruned,test,GNO C,SOYO C,12
+chips,pre_pruned,test,GNO C,VO C,1
+chips,pre_pruned,test,PO C,GNO C,7
+chips,pre_pruned,test,PO C,PO C,38
+chips,pre_pruned,test,PO C,SO C,2
+chips,pre_pruned,test,PO C,SOYO C,4
+chips,pre_pruned,test,PO C,VO C,3
+chips,pre_pruned,test,SO C,GNO C,12
+chips,pre_pruned,test,SO C,PO C,2
+chips,pre_pruned,test,SO C,SO C,30
+chips,pre_pruned,test,SO C,SOYO C,9
+chips,pre_pruned,test,SO C,VO C,1
+chips,pre_pruned,test,SOYO C,GNO C,6
+chips,pre_pruned,test,SOYO C,PO C,4
+chips,pre_pruned,test,SOYO C,SO C,7
+chips,pre_pruned,test,SOYO C,SOYO C,37
+chips,pre_pruned,test,SOYO C,VO C,0
+chips,pre_pruned,test,VO C,GNO C,0
+chips,pre_pruned,test,VO C,PO C,10
+chips,pre_pruned,test,VO C,SO C,0
+chips,pre_pruned,test,VO C,SOYO C,1
+chips,pre_pruned,test,VO C,VO C,43
+chips,post_pruned,train,GNO C,GNO C,93
+chips,post_pruned,train,GNO C,PO C,10
+chips,post_pruned,train,GNO C,SO C,10
+chips,post_pruned,train,GNO C,SOYO C,13
+chips,post_pruned,train,GNO C,VO C,0
+chips,post_pruned,train,PO C,GNO C,4
+chips,post_pruned,train,PO C,PO C,114
+chips,post_pruned,train,PO C,SO C,4
+chips,post_pruned,train,PO C,SOYO C,2
+chips,post_pruned,train,PO C,VO C,2
+chips,post_pruned,train,SO C,GNO C,10
+chips,post_pruned,train,SO C,PO C,9
+chips,post_pruned,train,SO C,SO C,90
+chips,post_pruned,train,SO C,SOYO C,17
+chips,post_pruned,train,SO C,VO C,0
+chips,post_pruned,train,SOYO C,GNO C,4
+chips,post_pruned,train,SOYO C,PO C,9
+chips,post_pruned,train,SOYO C,SO C,15
+chips,post_pruned,train,SOYO C,SOYO C,98
+chips,post_pruned,train,SOYO C,VO C,0
+chips,post_pruned,train,VO C,GNO C,2
+chips,post_pruned,train,VO C,PO C,15
+chips,post_pruned,train,VO C,SO C,2
+chips,post_pruned,train,VO C,SOYO C,0
+chips,post_pruned,train,VO C,VO C,107
+chips,post_pruned,test,GNO C,GNO C,26
+chips,post_pruned,test,GNO C,PO C,3
+chips,post_pruned,test,GNO C,SO C,12
+chips,post_pruned,test,GNO C,SOYO C,13
+chips,post_pruned,test,GNO C,VO C,0
+chips,post_pruned,test,PO C,GNO C,7
+chips,post_pruned,test,PO C,PO C,43
+chips,post_pruned,test,PO C,SO C,3
+chips,post_pruned,test,PO C,SOYO C,0
+chips,post_pruned,test,PO C,VO C,1
+chips,post_pruned,test,SO C,GNO C,7
+chips,post_pruned,test,SO C,PO C,7
+chips,post_pruned,test,SO C,SO C,29
+chips,post_pruned,test,SO C,SOYO C,11
+chips,post_pruned,test,SO C,VO C,0
+chips,post_pruned,test,SOYO C,GNO C,7
+chips,post_pruned,test,SOYO C,PO C,8
+chips,post_pruned,test,SOYO C,SO C,5
+chips,post_pruned,test,SOYO C,SOYO C,34
+chips,post_pruned,test,SOYO C,VO C,0
+chips,post_pruned,test,VO C,GNO C,0
+chips,post_pruned,test,VO C,PO C,11
+chips,post_pruned,test,VO C,SO C,0
+chips,post_pruned,test,VO C,SOYO C,1
+chips,post_pruned,test,VO C,VO C,42
+chips_paper_subtracted,baseline,train,GNO,GNO,126
+chips_paper_subtracted,baseline,train,GNO,PO,0
+chips_paper_subtracted,baseline,train,GNO,SO,0
+chips_paper_subtracted,baseline,train,GNO,SOYO,0
+chips_paper_subtracted,baseline,train,GNO,VO,0
+chips_paper_subtracted,baseline,train,PO,GNO,0
+chips_paper_subtracted,baseline,train,PO,PO,126
+chips_paper_subtracted,baseline,train,PO,SO,0
+chips_paper_subtracted,baseline,train,PO,SOYO,0
+chips_paper_subtracted,baseline,train,PO,VO,0
+chips_paper_subtracted,baseline,train,SO,GNO,0
+chips_paper_subtracted,baseline,train,SO,PO,0
+chips_paper_subtracted,baseline,train,SO,SO,126
+chips_paper_subtracted,baseline,train,SO,SOYO,0
+chips_paper_subtracted,baseline,train,SO,VO,0
+chips_paper_subtracted,baseline,train,SOYO,GNO,0
+chips_paper_subtracted,baseline,train,SOYO,PO,0
+chips_paper_subtracted,baseline,train,SOYO,SO,0
+chips_paper_subtracted,baseline,train,SOYO,SOYO,126
+chips_paper_subtracted,baseline,train,SOYO,VO,0
+chips_paper_subtracted,baseline,train,VO,GNO,0
+chips_paper_subtracted,baseline,train,VO,PO,0
+chips_paper_subtracted,baseline,train,VO,SO,0
+chips_paper_subtracted,baseline,train,VO,SOYO,0
+chips_paper_subtracted,baseline,train,VO,VO,126
+chips_paper_subtracted,baseline,test,GNO,GNO,47
+chips_paper_subtracted,baseline,test,GNO,PO,3
+chips_paper_subtracted,baseline,test,GNO,SO,3
+chips_paper_subtracted,baseline,test,GNO,SOYO,1
+chips_paper_subtracted,baseline,test,GNO,VO,0
+chips_paper_subtracted,baseline,test,PO,GNO,4
+chips_paper_subtracted,baseline,test,PO,PO,47
+chips_paper_subtracted,baseline,test,PO,SO,0
+chips_paper_subtracted,baseline,test,PO,SOYO,0
+chips_paper_subtracted,baseline,test,PO,VO,3
+chips_paper_subtracted,baseline,test,SO,GNO,7
+chips_paper_subtracted,baseline,test,SO,PO,0
+chips_paper_subtracted,baseline,test,SO,SO,34
+chips_paper_subtracted,baseline,test,SO,SOYO,11
+chips_paper_subtracted,baseline,test,SO,VO,2
+chips_paper_subtracted,baseline,test,SOYO,GNO,5
+chips_paper_subtracted,baseline,test,SOYO,PO,0
+chips_paper_subtracted,baseline,test,SOYO,SO,19
+chips_paper_subtracted,baseline,test,SOYO,SOYO,30
+chips_paper_subtracted,baseline,test,SOYO,VO,0
+chips_paper_subtracted,baseline,test,VO,GNO,0
+chips_paper_subtracted,baseline,test,VO,PO,4
+chips_paper_subtracted,baseline,test,VO,SO,0
+chips_paper_subtracted,baseline,test,VO,SOYO,0
+chips_paper_subtracted,baseline,test,VO,VO,50
+chips_paper_subtracted,pre_pruned,train,GNO,GNO,119
+chips_paper_subtracted,pre_pruned,train,GNO,PO,0
+chips_paper_subtracted,pre_pruned,train,GNO,SO,3
+chips_paper_subtracted,pre_pruned,train,GNO,SOYO,4
+chips_paper_subtracted,pre_pruned,train,GNO,VO,0
+chips_paper_subtracted,pre_pruned,train,PO,GNO,1
+chips_paper_subtracted,pre_pruned,train,PO,PO,124
+chips_paper_subtracted,pre_pruned,train,PO,SO,0
+chips_paper_subtracted,pre_pruned,train,PO,SOYO,1
+chips_paper_subtracted,pre_pruned,train,PO,VO,0
+chips_paper_subtracted,pre_pruned,train,SO,GNO,0
+chips_paper_subtracted,pre_pruned,train,SO,PO,0
+chips_paper_subtracted,pre_pruned,train,SO,SO,115
+chips_paper_subtracted,pre_pruned,train,SO,SOYO,11
+chips_paper_subtracted,pre_pruned,train,SO,VO,0
+chips_paper_subtracted,pre_pruned,train,SOYO,GNO,2
+chips_paper_subtracted,pre_pruned,train,SOYO,PO,0
+chips_paper_subtracted,pre_pruned,train,SOYO,SO,33
+chips_paper_subtracted,pre_pruned,train,SOYO,SOYO,91
+chips_paper_subtracted,pre_pruned,train,SOYO,VO,0
+chips_paper_subtracted,pre_pruned,train,VO,GNO,2
+chips_paper_subtracted,pre_pruned,train,VO,PO,0
+chips_paper_subtracted,pre_pruned,train,VO,SO,0
+chips_paper_subtracted,pre_pruned,train,VO,SOYO,0
+chips_paper_subtracted,pre_pruned,train,VO,VO,124
+chips_paper_subtracted,pre_pruned,test,GNO,GNO,45
+chips_paper_subtracted,pre_pruned,test,GNO,PO,3
+chips_paper_subtracted,pre_pruned,test,GNO,SO,3
+chips_paper_subtracted,pre_pruned,test,GNO,SOYO,3
+chips_paper_subtracted,pre_pruned,test,GNO,VO,0
+chips_paper_subtracted,pre_pruned,test,PO,GNO,6
+chips_paper_subtracted,pre_pruned,test,PO,PO,45
+chips_paper_subtracted,pre_pruned,test,PO,SO,0
+chips_paper_subtracted,pre_pruned,test,PO,SOYO,0
+chips_paper_subtracted,pre_pruned,test,PO,VO,3
+chips_paper_subtracted,pre_pruned,test,SO,GNO,8
+chips_paper_subtracted,pre_pruned,test,SO,PO,1
+chips_paper_subtracted,pre_pruned,test,SO,SO,37
+chips_paper_subtracted,pre_pruned,test,SO,SOYO,8
+chips_paper_subtracted,pre_pruned,test,SO,VO,0
+chips_paper_subtracted,pre_pruned,test,SOYO,GNO,4
+chips_paper_subtracted,pre_pruned,test,SOYO,PO,0
+chips_paper_subtracted,pre_pruned,test,SOYO,SO,27
+chips_paper_subtracted,pre_pruned,test,SOYO,SOYO,23
+chips_paper_subtracted,pre_pruned,test,SOYO,VO,0
+chips_paper_subtracted,pre_pruned,test,VO,GNO,0
+chips_paper_subtracted,pre_pruned,test,VO,PO,5
+chips_paper_subtracted,pre_pruned,test,VO,SO,0
+chips_paper_subtracted,pre_pruned,test,VO,SOYO,0
+chips_paper_subtracted,pre_pruned,test,VO,VO,49
+chips_paper_subtracted,post_pruned,train,GNO,GNO,117
+chips_paper_subtracted,post_pruned,train,GNO,PO,6
+chips_paper_subtracted,post_pruned,train,GNO,SO,3
+chips_paper_subtracted,post_pruned,train,GNO,SOYO,0
+chips_paper_subtracted,post_pruned,train,GNO,VO,0
+chips_paper_subtracted,post_pruned,train,PO,GNO,2
+chips_paper_subtracted,post_pruned,train,PO,PO,120
+chips_paper_subtracted,post_pruned,train,PO,SO,0
+chips_paper_subtracted,post_pruned,train,PO,SOYO,0
+chips_paper_subtracted,post_pruned,train,PO,VO,4
+chips_paper_subtracted,post_pruned,train,SO,GNO,4
+chips_paper_subtracted,post_pruned,train,SO,PO,0
+chips_paper_subtracted,post_pruned,train,SO,SO,95
+chips_paper_subtracted,post_pruned,train,SO,SOYO,27
+chips_paper_subtracted,post_pruned,train,SO,VO,0
+chips_paper_subtracted,post_pruned,train,SOYO,GNO,9
+chips_paper_subtracted,post_pruned,train,SOYO,PO,2
+chips_paper_subtracted,post_pruned,train,SOYO,SO,26
+chips_paper_subtracted,post_pruned,train,SOYO,SOYO,89
+chips_paper_subtracted,post_pruned,train,SOYO,VO,0
+chips_paper_subtracted,post_pruned,train,VO,GNO,0
+chips_paper_subtracted,post_pruned,train,VO,PO,3
+chips_paper_subtracted,post_pruned,train,VO,SO,0
+chips_paper_subtracted,post_pruned,train,VO,SOYO,0
+chips_paper_subtracted,post_pruned,train,VO,VO,123
+chips_paper_subtracted,post_pruned,test,GNO,GNO,49
+chips_paper_subtracted,post_pruned,test,GNO,PO,3
+chips_paper_subtracted,post_pruned,test,GNO,SO,0
+chips_paper_subtracted,post_pruned,test,GNO,SOYO,2
+chips_paper_subtracted,post_pruned,test,GNO,VO,0
+chips_paper_subtracted,post_pruned,test,PO,GNO,0
+chips_paper_subtracted,post_pruned,test,PO,PO,52
+chips_paper_subtracted,post_pruned,test,PO,SO,0
+chips_paper_subtracted,post_pruned,test,PO,SOYO,0
+chips_paper_subtracted,post_pruned,test,PO,VO,2
+chips_paper_subtracted,post_pruned,test,SO,GNO,10
+chips_paper_subtracted,post_pruned,test,SO,PO,2
+chips_paper_subtracted,post_pruned,test,SO,SO,34
+chips_paper_subtracted,post_pruned,test,SO,SOYO,8
+chips_paper_subtracted,post_pruned,test,SO,VO,0
+chips_paper_subtracted,post_pruned,test,SOYO,GNO,6
+chips_paper_subtracted,post_pruned,test,SOYO,PO,1
+chips_paper_subtracted,post_pruned,test,SOYO,SO,17
+chips_paper_subtracted,post_pruned,test,SOYO,SOYO,30
+chips_paper_subtracted,post_pruned,test,SOYO,VO,0
+chips_paper_subtracted,post_pruned,test,VO,GNO,0
+chips_paper_subtracted,post_pruned,test,VO,PO,5
+chips_paper_subtracted,post_pruned,test,VO,SO,0
+chips_paper_subtracted,post_pruned,test,VO,SOYO,0
+chips_paper_subtracted,post_pruned,test,VO,VO,49
+chips_paper_and_potato_subtracted,baseline,train,GNO,GNO,126
+chips_paper_and_potato_subtracted,baseline,train,GNO,PO,0
+chips_paper_and_potato_subtracted,baseline,train,GNO,SO,0
+chips_paper_and_potato_subtracted,baseline,train,GNO,SOYO,0
+chips_paper_and_potato_subtracted,baseline,train,GNO,VO,0
+chips_paper_and_potato_subtracted,baseline,train,PO,GNO,0
+chips_paper_and_potato_subtracted,baseline,train,PO,PO,126
+chips_paper_and_potato_subtracted,baseline,train,PO,SO,0
+chips_paper_and_potato_subtracted,baseline,train,PO,SOYO,0
+chips_paper_and_potato_subtracted,baseline,train,PO,VO,0
+chips_paper_and_potato_subtracted,baseline,train,SO,GNO,0
+chips_paper_and_potato_subtracted,baseline,train,SO,PO,0
+chips_paper_and_potato_subtracted,baseline,train,SO,SO,126
+chips_paper_and_potato_subtracted,baseline,train,SO,SOYO,0
+chips_paper_and_potato_subtracted,baseline,train,SO,VO,0
+chips_paper_and_potato_subtracted,baseline,train,SOYO,GNO,0
+chips_paper_and_potato_subtracted,baseline,train,SOYO,PO,0
+chips_paper_and_potato_subtracted,baseline,train,SOYO,SO,0
+chips_paper_and_potato_subtracted,baseline,train,SOYO,SOYO,126
+chips_paper_and_potato_subtracted,baseline,train,SOYO,VO,0
+chips_paper_and_potato_subtracted,baseline,train,VO,GNO,0
+chips_paper_and_potato_subtracted,baseline,train,VO,PO,0
+chips_paper_and_potato_subtracted,baseline,train,VO,SO,0
+chips_paper_and_potato_subtracted,baseline,train,VO,SOYO,0
+chips_paper_and_potato_subtracted,baseline,train,VO,VO,126
+chips_paper_and_potato_subtracted,baseline,test,GNO,GNO,47
+chips_paper_and_potato_subtracted,baseline,test,GNO,PO,5
+chips_paper_and_potato_subtracted,baseline,test,GNO,SO,1
+chips_paper_and_potato_subtracted,baseline,test,GNO,SOYO,0
+chips_paper_and_potato_subtracted,baseline,test,GNO,VO,1
+chips_paper_and_potato_subtracted,baseline,test,PO,GNO,2
+chips_paper_and_potato_subtracted,baseline,test,PO,PO,47
+chips_paper_and_potato_subtracted,baseline,test,PO,SO,0
+chips_paper_and_potato_subtracted,baseline,test,PO,SOYO,1
+chips_paper_and_potato_subtracted,baseline,test,PO,VO,4
+chips_paper_and_potato_subtracted,baseline,test,SO,GNO,7
+chips_paper_and_potato_subtracted,baseline,test,SO,PO,0
+chips_paper_and_potato_subtracted,baseline,test,SO,SO,26
+chips_paper_and_potato_subtracted,baseline,test,SO,SOYO,20
+chips_paper_and_potato_subtracted,baseline,test,SO,VO,1
+chips_paper_and_potato_subtracted,baseline,test,SOYO,GNO,4
+chips_paper_and_potato_subtracted,baseline,test,SOYO,PO,0
+chips_paper_and_potato_subtracted,baseline,test,SOYO,SO,20
+chips_paper_and_potato_subtracted,baseline,test,SOYO,SOYO,30
+chips_paper_and_potato_subtracted,baseline,test,SOYO,VO,0
+chips_paper_and_potato_subtracted,baseline,test,VO,GNO,1
+chips_paper_and_potato_subtracted,baseline,test,VO,PO,4
+chips_paper_and_potato_subtracted,baseline,test,VO,SO,0
+chips_paper_and_potato_subtracted,baseline,test,VO,SOYO,0
+chips_paper_and_potato_subtracted,baseline,test,VO,VO,49
+chips_paper_and_potato_subtracted,pre_pruned,train,GNO,GNO,122
+chips_paper_and_potato_subtracted,pre_pruned,train,GNO,PO,0
+chips_paper_and_potato_subtracted,pre_pruned,train,GNO,SO,3
+chips_paper_and_potato_subtracted,pre_pruned,train,GNO,SOYO,1
+chips_paper_and_potato_subtracted,pre_pruned,train,GNO,VO,0
+chips_paper_and_potato_subtracted,pre_pruned,train,PO,GNO,4
+chips_paper_and_potato_subtracted,pre_pruned,train,PO,PO,122
+chips_paper_and_potato_subtracted,pre_pruned,train,PO,SO,0
+chips_paper_and_potato_subtracted,pre_pruned,train,PO,SOYO,0
+chips_paper_and_potato_subtracted,pre_pruned,train,PO,VO,0
+chips_paper_and_potato_subtracted,pre_pruned,train,SO,GNO,1
+chips_paper_and_potato_subtracted,pre_pruned,train,SO,PO,0
+chips_paper_and_potato_subtracted,pre_pruned,train,SO,SO,86
+chips_paper_and_potato_subtracted,pre_pruned,train,SO,SOYO,39
+chips_paper_and_potato_subtracted,pre_pruned,train,SO,VO,0
+chips_paper_and_potato_subtracted,pre_pruned,train,SOYO,GNO,4
+chips_paper_and_potato_subtracted,pre_pruned,train,SOYO,PO,0
+chips_paper_and_potato_subtracted,pre_pruned,train,SOYO,SO,8
+chips_paper_and_potato_subtracted,pre_pruned,train,SOYO,SOYO,114
+chips_paper_and_potato_subtracted,pre_pruned,train,SOYO,VO,0
+chips_paper_and_potato_subtracted,pre_pruned,train,VO,GNO,2
+chips_paper_and_potato_subtracted,pre_pruned,train,VO,PO,1
+chips_paper_and_potato_subtracted,pre_pruned,train,VO,SO,0
+chips_paper_and_potato_subtracted,pre_pruned,train,VO,SOYO,0
+chips_paper_and_potato_subtracted,pre_pruned,train,VO,VO,123
+chips_paper_and_potato_subtracted,pre_pruned,test,GNO,GNO,47
+chips_paper_and_potato_subtracted,pre_pruned,test,GNO,PO,4
+chips_paper_and_potato_subtracted,pre_pruned,test,GNO,SO,0
+chips_paper_and_potato_subtracted,pre_pruned,test,GNO,SOYO,3
+chips_paper_and_potato_subtracted,pre_pruned,test,GNO,VO,0
+chips_paper_and_potato_subtracted,pre_pruned,test,PO,GNO,5
+chips_paper_and_potato_subtracted,pre_pruned,test,PO,PO,47
+chips_paper_and_potato_subtracted,pre_pruned,test,PO,SO,0
+chips_paper_and_potato_subtracted,pre_pruned,test,PO,SOYO,0
+chips_paper_and_potato_subtracted,pre_pruned,test,PO,VO,2
+chips_paper_and_potato_subtracted,pre_pruned,test,SO,GNO,6
+chips_paper_and_potato_subtracted,pre_pruned,test,SO,PO,0
+chips_paper_and_potato_subtracted,pre_pruned,test,SO,SO,27
+chips_paper_and_potato_subtracted,pre_pruned,test,SO,SOYO,21
+chips_paper_and_potato_subtracted,pre_pruned,test,SO,VO,0
+chips_paper_and_potato_subtracted,pre_pruned,test,SOYO,GNO,5
+chips_paper_and_potato_subtracted,pre_pruned,test,SOYO,PO,0
+chips_paper_and_potato_subtracted,pre_pruned,test,SOYO,SO,11
+chips_paper_and_potato_subtracted,pre_pruned,test,SOYO,SOYO,38
+chips_paper_and_potato_subtracted,pre_pruned,test,SOYO,VO,0
+chips_paper_and_potato_subtracted,pre_pruned,test,VO,GNO,1
+chips_paper_and_potato_subtracted,pre_pruned,test,VO,PO,5
+chips_paper_and_potato_subtracted,pre_pruned,test,VO,SO,0
+chips_paper_and_potato_subtracted,pre_pruned,test,VO,SOYO,0
+chips_paper_and_potato_subtracted,pre_pruned,test,VO,VO,48
+chips_paper_and_potato_subtracted,post_pruned,train,GNO,GNO,115
+chips_paper_and_potato_subtracted,post_pruned,train,GNO,PO,7
+chips_paper_and_potato_subtracted,post_pruned,train,GNO,SO,3
+chips_paper_and_potato_subtracted,post_pruned,train,GNO,SOYO,1
+chips_paper_and_potato_subtracted,post_pruned,train,GNO,VO,0
+chips_paper_and_potato_subtracted,post_pruned,train,PO,GNO,2
+chips_paper_and_potato_subtracted,post_pruned,train,PO,PO,120
+chips_paper_and_potato_subtracted,post_pruned,train,PO,SO,0
+chips_paper_and_potato_subtracted,post_pruned,train,PO,SOYO,0
+chips_paper_and_potato_subtracted,post_pruned,train,PO,VO,4
+chips_paper_and_potato_subtracted,post_pruned,train,SO,GNO,8
+chips_paper_and_potato_subtracted,post_pruned,train,SO,PO,0
+chips_paper_and_potato_subtracted,post_pruned,train,SO,SO,87
+chips_paper_and_potato_subtracted,post_pruned,train,SO,SOYO,31
+chips_paper_and_potato_subtracted,post_pruned,train,SO,VO,0
+chips_paper_and_potato_subtracted,post_pruned,train,SOYO,GNO,13
+chips_paper_and_potato_subtracted,post_pruned,train,SOYO,PO,2
+chips_paper_and_potato_subtracted,post_pruned,train,SOYO,SO,18
+chips_paper_and_potato_subtracted,post_pruned,train,SOYO,SOYO,93
+chips_paper_and_potato_subtracted,post_pruned,train,SOYO,VO,0
+chips_paper_and_potato_subtracted,post_pruned,train,VO,GNO,0
+chips_paper_and_potato_subtracted,post_pruned,train,VO,PO,3
+chips_paper_and_potato_subtracted,post_pruned,train,VO,SO,0
+chips_paper_and_potato_subtracted,post_pruned,train,VO,SOYO,0
+chips_paper_and_potato_subtracted,post_pruned,train,VO,VO,123
+chips_paper_and_potato_subtracted,post_pruned,test,GNO,GNO,49
+chips_paper_and_potato_subtracted,post_pruned,test,GNO,PO,5
+chips_paper_and_potato_subtracted,post_pruned,test,GNO,SO,0
+chips_paper_and_potato_subtracted,post_pruned,test,GNO,SOYO,0
+chips_paper_and_potato_subtracted,post_pruned,test,GNO,VO,0
+chips_paper_and_potato_subtracted,post_pruned,test,PO,GNO,0
+chips_paper_and_potato_subtracted,post_pruned,test,PO,PO,52
+chips_paper_and_potato_subtracted,post_pruned,test,PO,SO,0
+chips_paper_and_potato_subtracted,post_pruned,test,PO,SOYO,0
+chips_paper_and_potato_subtracted,post_pruned,test,PO,VO,2
+chips_paper_and_potato_subtracted,post_pruned,test,SO,GNO,8
+chips_paper_and_potato_subtracted,post_pruned,test,SO,PO,2
+chips_paper_and_potato_subtracted,post_pruned,test,SO,SO,30
+chips_paper_and_potato_subtracted,post_pruned,test,SO,SOYO,14
+chips_paper_and_potato_subtracted,post_pruned,test,SO,VO,0
+chips_paper_and_potato_subtracted,post_pruned,test,SOYO,GNO,6
+chips_paper_and_potato_subtracted,post_pruned,test,SOYO,PO,1
+chips_paper_and_potato_subtracted,post_pruned,test,SOYO,SO,12
+chips_paper_and_potato_subtracted,post_pruned,test,SOYO,SOYO,35
+chips_paper_and_potato_subtracted,post_pruned,test,SOYO,VO,0
+chips_paper_and_potato_subtracted,post_pruned,test,VO,GNO,0
+chips_paper_and_potato_subtracted,post_pruned,test,VO,PO,5
+chips_paper_and_potato_subtracted,post_pruned,test,VO,SO,0
+chips_paper_and_potato_subtracted,post_pruned,test,VO,SOYO,0
+chips_paper_and_potato_subtracted,post_pruned,test,VO,VO,49
