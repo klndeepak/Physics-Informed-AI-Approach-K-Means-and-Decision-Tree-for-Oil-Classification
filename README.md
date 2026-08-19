@@ -35,6 +35,44 @@ Four Raman spectral datasets are provided:
 
 The NNLS approach incorporates the physical constraint that Raman spectral contributions are non-negative and additive.
 
+## Reproducible Python Pipeline
+
+The six notebooks remain the canonical research record. Their analyses are
+also available as a modular Python package under `src/raman_analysis/`, with
+one command-line script per notebook workflow. Both implementations read the
+same four root-level CSV files and write to the existing `Images/` hierarchy.
+
+Create the verified environment and install the package:
+
+```bash
+conda env create -f environment.yml
+conda activate raman-analysis
+pip install -e .
+```
+
+Alternatively, create a virtual environment and run
+`pip install -e .`. Development dependencies are available with
+`pip install -e ".[dev]"`.
+
+Run an individual analysis or the complete pipeline:
+
+```bash
+python scripts/run_kmeans_oils.py
+python scripts/run_kmeans_chips.py
+python scripts/run_kmeans_comparison.py
+
+python scripts/run_decision_tree_oils.py
+python scripts/run_decision_tree_chips.py
+python scripts/run_decision_tree_chips_paper_subtracted.py
+python scripts/run_decision_tree_chips_paper_and_potato_subtracted.py
+
+python scripts/run_all.py
+```
+
+The package pins random seeds and preserves the notebooks' data preparation,
+model parameters, metrics, confusion matrices, t-SNE coordinates, and output
+filenames. Run `pytest` to verify the numerical regression suite.
+
 ## K-Means Clustering and t-SNE Analysis
 
 K-Means clustering, elbow analysis, silhouette-score analysis, and t-SNE visualization were performed on the pure-oil and original chips datasets.
@@ -213,6 +251,10 @@ These results demonstrate the potential of combining Raman spectroscopy, unsuper
 All datasets, Jupyter notebooks, and generated figures required to reproduce the analyses presented in the study are provided in this repository.
 
 The notebooks can be executed in Jupyter Notebook or JupyterLab after installing the required Python packages.
+
+The production scripts provide a non-interactive replacement for the notebook
+execution path. Dependency versions used for numerical verification are pinned
+in `environment.yml` and `requirements.txt`; automated checks live in `tests/`.
 
 ## Citation
 
