@@ -20,7 +20,6 @@ from raman_analysis.config import CLUSTERING_RANDOM_STATE
 from raman_analysis.data import (
     load_spectral_dataset,
     report_spectrum_minimum,
-    shift_to_nonnegative,
     split_meta_and_spectral_columns,
 )
 from raman_analysis.paths import ensure_dir
@@ -30,8 +29,10 @@ def _scaled_features(dataset):
     df = load_spectral_dataset(dataset.csv_path, dataset.drop_unnamed_index)
     _, spectral_columns = split_meta_and_spectral_columns(list(df.columns))
 
-    min_value, _, _ = report_spectrum_minimum(df[spectral_columns])
-    df = shift_to_nonnegative(df, spectral_columns, min_value)
+    # Match clustering.pipeline: negative values are meaningful Z-scores,
+    # and scale_features() re-centers every column anyway, so a constant
+    # nonnegative shift would have no effect on either comparison curve.
+    report_spectrum_minimum(df[spectral_columns])
 
     X = df.drop(columns=dataset.drop_columns).astype(float)
     return scale_features(X)

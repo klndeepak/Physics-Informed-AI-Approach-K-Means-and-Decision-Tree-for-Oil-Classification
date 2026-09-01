@@ -9,7 +9,7 @@ from sklearn.metrics import silhouette_score
 from raman_analysis.clustering import config, tsne_plots
 from raman_analysis.clustering.scaling import scale_features
 from raman_analysis.config import CLUSTERING_RANDOM_STATE
-from raman_analysis.data import load_spectral_dataset, split_meta_and_spectral_columns
+from raman_analysis.data import load_spectral_dataset
 
 
 @pytest.mark.parametrize("dataset", [config.OILS, config.CHIPS], ids=lambda item: item.key)
@@ -20,7 +20,6 @@ def test_tsne_embedding_matches_canonical_notebook_output(dataset, n_components)
     # re-centers every column regardless of any constant offset, making a
     # shift invisible to the actual t-SNE input either way.
     frame = load_spectral_dataset(dataset.csv_path, dataset.drop_unnamed_index)
-    _, spectral_columns = split_meta_and_spectral_columns(list(frame.columns))
     features = frame.drop(columns=dataset.drop_columns).astype(float)
 
     scaled_features = scale_features(features)
