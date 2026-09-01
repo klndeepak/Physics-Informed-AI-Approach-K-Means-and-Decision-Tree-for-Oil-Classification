@@ -6,6 +6,18 @@ differs (palette, legend text quirks, perplexity sweep, output
 filenames) comes from a single :class:`ClusteringDatasetConfig`. See
 that module's docstring for the ``hue_column_name`` naming quirk this
 pipeline reproduces from the original notebooks.
+
+Evaluation scope: each row clustered here is one Raman spectrum, and
+~20 spectra were collected per physical sample (see the "SCOPE" note in
+``decision_tree/pipeline.py`` for the exact counts) - the same
+spectrum-level cohort used consistently throughout this study. K-Means
+and t-SNE have no train/test split to begin with, so this affects
+interpretation rather than methodology: closely related, same-sample
+spectra contribute to tighter within-cluster distances (lower WCSS,
+higher silhouette score) than a cohort of entirely independent
+single-spectrum samples would - worth bearing in mind when comparing
+these compactness metrics to studies built on a different sampling
+design.
 """
 
 from __future__ import annotations
@@ -22,7 +34,6 @@ from ..config import CLUSTERING_RANDOM_STATE
 from ..data import (
     load_spectral_dataset,
     report_spectrum_minimum,
-    shift_to_nonnegative,
     split_meta_and_spectral_columns,
 )
 from ..paths import ensure_dir
@@ -44,8 +55,17 @@ def run(dataset: ClusteringDatasetConfig) -> ClusteringResult:
     df = load_spectral_dataset(dataset.csv_path, dataset.drop_unnamed_index)
     _, spectral_columns = split_meta_and_spectral_columns(list(df.columns))
 
-    min_value, _, _ = report_spectrum_minimum(df[spectral_columns])
-    df = shift_to_nonnegative(df, spectral_columns, min_value)
+    report_spectrum_minimum(df[spectral_columns])
+    # No shift applied: df's spectral values are Z-scores (Oils/Chips
+    # arrive column-standardized upstream - see datasets.py), so a
+    # negative or zero reading is a normal, statistically meaningful
+    # value (this wavenumber's intensity at or below its own population
+    # mean), not an instrument artifact. This is inconsequential to the
+    # clustering itself either way: scale_features() below re-centers
+    # every column, so any constant shift would have been invisible to
+    # K-Means/t-SNE regardless. See cluster_profile.py's y-axis labels
+    # for how the unscaled display plots built from `df`/`X` below make
+    # this Z-score nature clear to the reader.
 
     X = df.drop(columns=dataset.drop_columns).astype(float)
     y = df[dataset.target_column]
