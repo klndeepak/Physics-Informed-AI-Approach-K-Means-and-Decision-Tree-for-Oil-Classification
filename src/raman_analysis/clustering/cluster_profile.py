@@ -6,6 +6,12 @@ spectrum. ``plot_cluster_average_vs_random`` is pure-oils only: it adds,
 per cluster, one randomly sampled member spectrum plotted alongside the
 cluster average, as a sanity check that the average is representative
 rather than an artifact of averaging away real spectral variation.
+
+The plotted values are column-wise Z-scores, not raw intensity counts
+(see ``clustering/pipeline.py``) - both y-axis labels below say so
+explicitly, and negative/zero values are left as-is rather than shifted,
+since they are a normal, statistically meaningful part of that
+normalization.
 """
 
 from __future__ import annotations
@@ -58,7 +64,8 @@ def plot_cluster_profiles(
     axes[-1, 0].set_xlabel("Raman Shift (cm$^{-1}$)")
     axes[-1, 1].set_xlabel("Raman Shift (cm$^{-1}$)")
     fig.text(
-        0.04, 0.5, "Average Spectral Intensity", va="center", rotation="vertical", fontsize=14
+        0.04, 0.5, "Average Standardized Intensity (z-score)",
+        va="center", rotation="vertical", fontsize=14,
     )
 
     plt.tight_layout()
@@ -130,7 +137,7 @@ def plot_cluster_average_vs_random(
             ax_left.legend(loc="upper left")
 
     fig.supxlabel("Raman Shift (cm$^{-1}$)", fontsize=14)
-    fig.supylabel("Spectral Intensity", fontsize=14)
+    fig.supylabel("Standardized Intensity (z-score)", fontsize=14)
 
     plt.tight_layout()
     plt.savefig(out_path, dpi=dpi, bbox_inches="tight")

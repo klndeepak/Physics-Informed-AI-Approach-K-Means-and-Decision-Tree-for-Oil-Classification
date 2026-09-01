@@ -37,6 +37,10 @@ _CV_RESULT_COLUMNS = ["params", "mean_test_score", "std_test_score", "rank_test_
 
 
 def _stratified_cv(random_state: int) -> StratifiedKFold:
+    # Stratifies by class label, evaluating at the spectrum level - the
+    # same scope documented in decision_tree/pipeline.py's "SCOPE" note
+    # applies to these CV folds too, consistently with the rest of this
+    # study's spectrum-level evaluation.
     return StratifiedKFold(n_splits=CV_FOLDS, shuffle=True, random_state=random_state)
 
 

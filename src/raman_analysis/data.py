@@ -18,6 +18,7 @@ from __future__ import annotations
 from pathlib import Path
 
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
 
 
 def is_wavenumber_column(column_name: str) -> bool:
@@ -87,17 +88,97 @@ def report_spectrum_minimum(
     return min_value, row_idx, col_idx
 
 
-def shift_to_nonnegative(
-    df: pd.DataFrame, spectral_columns: list[str], min_value: float
-) -> pd.DataFrame:
-    """Add ``abs(min_value)`` to every spectral column so the minimum is 0.
+def standardize_train_test(
+    X_train: pd.DataFrame, X_test: pd.DataFrame
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Column-wise (per-wavenumber) z-score, fit on the training split only.
 
-    Used by the clustering pipeline, where distance-based algorithms
-    (K-Means, t-SNE) benefit from a consistent, non-negative scale.
-    The Decision Tree pipeline does not shift its data - see
-    :func:`report_spectrum_minimum`'s callers for why.
+    Applied identically, by the Decision Tree pipeline, to every dataset
+    in this project (pure oils, chips, and both NNLS-subtracted chip
+    variants).
+
+    Why normalize at all
+    ---------------------
+    Each wavenumber column is a distinct Raman-active vibrational mode
+    with its own intrinsic scattering cross-section; cross-sections
+    differ by orders of magnitude between modes for physical reasons
+    that have nothing to do with how well a wavenumber discriminates
+    between oils (e.g. C-H stretching, ~2850-2950 cm^-1, is
+    characteristically far more Raman-intense than many
+    fingerprint-region skeletal modes below 1500 cm^-1). Column-wise
+    z-scoring ("autoscaling" in chemometrics) puts every vibrational
+    mode on equal statistical footing - the same reasoning that makes
+    K-Means/t-SNE distances meaningful (see ``clustering/scaling.py``).
+
+    Why it is applied here too, for Decision Trees, which don't need it
+    ---------------------------------------------------------------------
+    A Decision Tree's splits are threshold cuts on one feature at a
+    time; any per-feature affine rescaling (which z-scoring is)
+    preserves each feature's sample rank order, so it cannot change
+    which side of a split any sample falls on. Accuracy, confusion
+    matrices, and feature-importance *ranking* are therefore
+    mathematically guaranteed identical whether or not this function is
+    used - see ``tests/test_scaling_invariance.py`` for a direct proof.
+    It is applied anyway so that the two datasets that arrive
+    unnormalized (the NNLS-subtracted chip variants; see the module
+    docstring in ``decision_tree/config.py``) are treated identically to
+    the two that arrive pre-normalized (pure oils, chips), and so every
+    reported split threshold and feature-importance value in this
+    project is expressed in the same, comparable (z-score) unit.
+
+    Why column-wise, not row-wise (per-spectrum)
+    -----------------------------------------------
+    Row-wise normalization (e.g. Standard Normal Variate) corrects a
+    different problem - multiplicative drift between *acquisitions*
+    (laser power, exposure, sample positioning) - by rescaling each
+    spectrum to its own mean/std. That is not attempted anywhere in this
+    project; this function only ever normalizes across the sample
+    population, per wavenumber.
+
+    Why fit on ``X_train`` only
+    ------------------------------
+    Standard practice for any train/test-based transform: fitting on the
+    full dataset (train + test) would let the held-out test set's
+    distribution influence the transform applied to training data. For a
+    Decision Tree this leakage happens to be provably harmless (see
+    above), but there is no reason to rely on that fact when the
+    correct-by-construction alternative costs nothing.
+
+    A caveat worth disclosing: the pure-oils and chips CSVs were already
+    column-standardized *before* they entered this repository (see
+    ``decision_tree/config.py``'s ``_ZSCORE_NOTE``) - this function
+    re-standardizes their *training-split* values on top of that, which
+    is an (almost, but not exactly, identity) second pass rather than
+    the first true normalization for those two datasets. The original
+    upstream normalization cannot be independently re-derived or
+    verified from raw, pre-normalization intensities, because those raw
+    values are not available in this repository.
+
+    A second, related question worth answering explicitly: this function
+    is called *once* on the whole training split, before
+    ``decision_tree/pruning.py`` runs its internal 5-fold
+    ``GridSearchCV`` for hyperparameter selection - the scaler is not
+    refit inside each CV fold (e.g. via a ``sklearn.pipeline.Pipeline``).
+    In general that is a mild form of preprocessing leakage: a fold's
+    held-out validation rows influence the mean/std used to scale that
+    same fold's training rows. For a Decision Tree it remains harmless
+    for the same reason as above: within any one CV fold, every row -
+    train and validation alike - is transformed by the *same fixed*
+    per-feature affine map, and an affine map preserves each feature's
+    rank order across any subset of rows regardless of which rows its
+    own parameters were estimated from. So the split chosen at every
+    node, and therefore the selected hyperparameters and CV scores, are
+    identical to what a per-fold-refit scaler (or no scaler at all) would
+    have produced. This only holds because the estimator here is a
+    Decision Tree; it would not generalize to a scale-sensitive model
+    (e.g. SVM, k-NN, logistic regression), which would need the scaler
+    placed inside a ``Pipeline`` and refit per fold.
     """
-    shifted = df.copy()
-    shifted[spectral_columns] = shifted[spectral_columns] + abs(min_value)
-    print("New minimum:", shifted[spectral_columns].min().min())
-    return shifted
+    scaler = StandardScaler()
+    train_scaled = pd.DataFrame(
+        scaler.fit_transform(X_train), columns=X_train.columns, index=X_train.index
+    )
+    test_scaled = pd.DataFrame(
+        scaler.transform(X_test), columns=X_test.columns, index=X_test.index
+    )
+    return train_scaled, test_scaled

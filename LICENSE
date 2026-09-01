@@ -1,0 +1,31 @@
+Copyright (c) 2026. All rights reserved.
+
+This repository accompanies the publication "Decision Tree and K-Means
+Analysis of Raman Spectra for Edible Oils: A Physics-Informed AI Approach"
+(arXiv:2608.20440).
+
+ALL RIGHTS RESERVED. No permission is granted, and none should be assumed,
+to use, copy, reproduce, modify, merge, publish, distribute, sublicense,
+or sell any part of this repository - including but not limited to the
+source code (`src/`, `scripts/`), Jupyter notebooks, datasets (`*.csv`),
+generated figures and reports (`Images/`), and documentation - in whole
+or in part, for any purpose, without the prior express written permission
+of the rights holders.
+
+This applies regardless of the medium through which this repository or
+its contents were obtained (this GitHub repository, the arXiv submission,
+or any other source), and regardless of whether such use is commercial
+or non-commercial, including academic research, unless a separate written
+agreement with the rights holders states otherwise.
+
+Requests for permission to use any part of this repository - including
+requests to reproduce results, reuse the datasets, or build on the
+code - must be directed to the corresponding author(s) of the associated
+publication, as identified in that publication.
+
+THE SOFTWARE AND DATA ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE RIGHTS HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR
+OTHER LIABILITY ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE,
+THE DATA, OR THE USE OR OTHER DEALINGS IN EITHER.

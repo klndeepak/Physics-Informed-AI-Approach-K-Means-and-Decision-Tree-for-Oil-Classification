@@ -6,6 +6,12 @@ type's mean Raman spectrum across all its samples. It only makes sense
 for the pure-oil dataset (the chip datasets mix multiple oils per
 sample matrix), which is why it is not part of the shared pipeline in
 ``decision_tree/pipeline.py``.
+
+The plotted values are column-wise Z-scores, not raw intensity counts
+(see ``decision_tree/config.py``'s module docstring) - the y-axis label
+says so explicitly, and negative/zero values are left as-is rather than
+shifted, since they are a normal, statistically meaningful part of that
+normalization.
 """
 
 from __future__ import annotations
@@ -42,7 +48,7 @@ def plot_mean_spectra_by_oil(
 
         axes[row, 0].scatter(wavenumbers[mask_left], y[mask_left], s=2, label=f"Oil type: {oil}")
         axes[row, 1].scatter(wavenumbers[mask_right], y[mask_right], s=2)
-        axes[row, 0].set_ylabel("Intensity (a.u.)")
+        axes[row, 0].set_ylabel("Standardized Intensity (z-score)")
         axes[row, 0].legend(loc="upper right")
         axes[row, 0].grid(alpha=0.3)
         axes[row, 1].grid(alpha=0.3)

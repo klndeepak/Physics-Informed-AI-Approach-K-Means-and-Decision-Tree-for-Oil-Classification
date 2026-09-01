@@ -2,7 +2,7 @@
 
 ## Environment
 
-- Python: 3.13.9
+- Python: 3.13.12
 
 ## Libraries
 
