@@ -28,6 +28,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 
 from .reporting import export_tree_text_report, plot_decision_tree_diagram
+from ..data import standardize_train_test
 from ..paths import ensure_dir
 
 # Hyperparameters mirror the winning pre-pruned model, since this step
@@ -86,9 +87,21 @@ def run_four_feature_check(
     X = df_features[selected_wavenumbers].astype(float)
     y = df_features[target_column]
 
-    X_train, X_test, y_train, y_test = train_test_split(
+    # Same spectrum-level evaluation scope as the main pipeline's split
+    # (see decision_tree/pipeline.py's "SCOPE" note): stratified by class,
+    # consistent with every other split in this study.
+    X_train_raw, X_test_raw, y_train, y_test = train_test_split(
         X, y, test_size=0.30, random_state=random_state, stratify=y
     )
+
+    # Same column-wise z-score policy as the main pipeline (see
+    # data.standardize_train_test's docstring), fit independently here
+    # because this step retrains on a different feature subset - just
+    # the tree-selected wavenumbers - than the full-feature model above.
+    # As there, this is a units/consistency choice, not a correctness
+    # requirement: restricting to 4 already-selected features and
+    # re-fitting a Decision Tree on them is unaffected by their scale.
+    X_train, X_test = standardize_train_test(X_train_raw, X_test_raw)
 
     model = DecisionTreeClassifier(random_state=random_state, **FOUR_FEATURE_TREE_PARAMS)
     model.fit(X_train, y_train)

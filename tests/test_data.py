@@ -6,7 +6,6 @@ import pytest
 from raman_analysis.data import (
     is_wavenumber_column,
     report_spectrum_minimum,
-    shift_to_nonnegative,
     split_meta_and_spectral_columns,
 )
 
@@ -48,15 +47,3 @@ def test_report_spectrum_minimum_finds_the_right_cell(capsys):
     assert row_idx == 1
     assert col_idx == "10.0"
     assert "Most negative value: -5.0" in capsys.readouterr().out
-
-
-def test_shift_to_nonnegative_zeroes_the_minimum():
-    df = pd.DataFrame({"meta": ["a", "b"], "10.0": [1.0, -5.0], "20.0": [0.5, 2.0]})
-
-    shifted = shift_to_nonnegative(df, spectral_columns=["10.0", "20.0"], min_value=-5.0)
-
-    assert shifted[["10.0", "20.0"]].min().min() == 0.0
-    # Non-spectral columns are left untouched.
-    assert list(shifted["meta"]) == ["a", "b"]
-    # The shift does not mutate the caller's DataFrame.
-    assert df["10.0"].min() == -5.0

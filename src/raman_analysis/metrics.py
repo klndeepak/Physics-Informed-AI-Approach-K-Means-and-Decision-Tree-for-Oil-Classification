@@ -4,6 +4,20 @@ Both helpers here are dataset-agnostic: they take a fitted classifier
 plus a feature/target pair and report weighted-average metrics, since
 every dataset in this project is a 5-class (oil type) problem where each
 class matters equally regardless of how many samples it has.
+
+On "Recall" vs "Sensitivity": this project has no single designated
+positive/negative class - it is a 5-way oil-identification problem, not
+a binary detection problem - so the binary-only terms "sensitivity" and
+"specificity" do not have one unambiguous meaning here. "Recall" below is
+scikit-learn's weighted-average recall across all 5 classes, the direct
+multi-class generalization of what a binary problem would call
+sensitivity for its one positive class. Any question about a specific
+oil's individual false-positive/false-negative behavior (e.g. "how often
+is oil A mistaken for another oil, versus another oil mistaken for oil
+A") is answered by the full per-class confusion matrix, not by this
+weighted scalar - see :func:`plot_confusion_matrix` below, which this
+project renders for both the training and held-out test set at every
+pipeline stage.
 """
 
 from __future__ import annotations

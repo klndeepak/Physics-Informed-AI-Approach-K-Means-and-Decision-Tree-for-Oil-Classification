@@ -24,6 +24,15 @@ from ..paths import IMAGES_DIR
 # Spectral rows/columns are already de-meaned to zero on this dataset, so
 # the notebook only *reports* the minimum instead of shifting it, and
 # frames the message accordingly.
+#
+# These notes describe only the RAW CSV's own nature, before this
+# pipeline touches it - they do not describe what the classifier
+# ultimately trains on. As of the explicit per-dataset column-wise
+# z-score normalization added in decision_tree/pipeline.py (see
+# data.standardize_train_test), every dataset's *modeling features* are
+# standardized on the training split before any Decision Tree is fit,
+# regardless of whether the raw CSV values were already normalized
+# (Oils/Chips) or not (the two NNLS-subtracted variants below).
 _ZSCORE_NOTE = "already Z-score normalized"
 _DIFFERENCE_SPECTRUM_NOTE = "a difference spectrum"
 
@@ -31,6 +40,14 @@ _DIFFERENCE_SPECTRUM_NOTE = "a difference spectrum"
 # (the clustering pipeline never analyzes them), so their identity is
 # defined here rather than alongside the shared Oils/Chips identities in
 # ``datasets.py``.
+# "Chips Type" here is the same physical-sample identifier as in
+# datasets.py's CHIPS_IDENTITY (45 unique values = 5 oil types x 9 frying
+# cycles); "Stage" is the frying-cycle number and "Replicate" (20 unique
+# values) is the within-batch spatial-point index - together confirming
+# each of these datasets' 900 rows is 45 physical samples x 20 spectra.
+# All three are dropped as metadata, consistent with this study's
+# spectrum-level evaluation scope - see the "SCOPE" note in
+# decision_tree/pipeline.py.
 _PAPER_SUBTRACTED_IDENTITY = SpectralDatasetIdentity(
     csv_path_name="Paper Subtracted.csv",
     drop_unnamed_index=False,

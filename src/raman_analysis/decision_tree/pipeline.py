@@ -13,6 +13,15 @@ share the same alphabetical order, so this only affects a cosmetic
 suffix on plot tick labels, never which class a prediction is scored
 against; it is kept as-is here to reproduce the notebooks' figures
 exactly.
+
+Every stage below (baseline, pre-pruned, post-pruned) reports accuracy,
+precision, recall, F1, and a confusion matrix for BOTH the training set
+and the held-out test set - never cross-validation results alone. The
+5-fold ``StratifiedKFold`` cross-validation in ``pruning.py`` is used
+only to select hyperparameters (``max_depth``/``max_leaf_nodes``/
+``min_samples_split`` for pre-pruning, ``ccp_alpha`` for post-pruning) on
+the training split; the test split is never touched until the winning
+model of each stage is scored once, at the end, right here.
 """
 
 from __future__ import annotations
@@ -32,6 +41,7 @@ from ..data import (
     load_spectral_dataset,
     report_spectrum_minimum,
     split_meta_and_spectral_columns,
+    standardize_train_test,
 )
 from ..metrics import classification_performance, plot_confusion_matrix
 from ..paths import ensure_dir
@@ -49,21 +59,66 @@ def run(dataset: DecisionTreeDatasetConfig) -> None:
     _, spectral_columns = split_meta_and_spectral_columns(list(df.columns))
 
     if dataset.has_mean_spectra_plot:
+        # Plotted directly, unshifted: df's spectral values are Z-scores
+        # (see the diagnostic below and decision_tree/config.py's module
+        # docstring) - a negative or zero value is a normal, statistically
+        # meaningful reading (this wavenumber's intensity at or below its
+        # own population mean), not an instrument artifact, so there is
+        # no principled floor to shift it to. See spectra_overview.py's
+        # y-axis label for how this is made clear to the reader.
         plot_mean_spectra_by_oil(df, spectral_columns, output_dir / files["mean_spectra"])
 
     report_spectrum_minimum(df[spectral_columns])
     print(
-        f"Shift skipped (data is {dataset.negative_value_note}; "
-        "negative values are physically meaningful)"
+        f"Raw column values are {dataset.negative_value_note}; negative values "
+        "there are a real, physically meaningful reading, not an artifact - "
+        "see the module docstring in decision_tree/config.py. They are left "
+        "as-is here (unshifted); the modeling features derived from them are "
+        "normalized separately below, via standardize_train_test."
     )
-    print("Minimum stays:", df[spectral_columns].min().min())
     df.info(memory_usage="deep")
 
     X = df.drop(columns=dataset.drop_columns).astype(float)
     y = df[dataset.target_column]
-    X_train, X_test, y_train, y_test = train_test_split(
+
+    # SCOPE: spectrum-level evaluation over a controlled sample cohort.
+    # Each row here is one Raman spectrum; each physical sample (one oil
+    # preparation, or one fried-chip batch) contributes ~20 spectra taken
+    # at different spatial points, a standard approach for obtaining a
+    # robust, averaged spectral signature per sample:
+    #   - Oils.csv: 1000 rows = 50 physical oil samples (5 oil types x 10
+    #     replicates; the "Oil_Type" column has exactly 50 unique values)
+    #     x 20 spectra each.
+    #   - Chips.csv and both NNLS-subtracted variants: 900 rows = 45
+    #     physical chip batches (5 oil types x 9 frying cycles; the "Chips
+    #     Type" column has exactly 45 unique values, and the subtracted
+    #     datasets' "Replicate" column, 20 unique values, is the
+    #     within-batch spatial-point index) x 20 spectra each.
+    # `train_test_split`/`StratifiedKFold` below stratify on the 5-class
+    # oil label and evaluate at the spectrum level, identically across
+    # every dataset and pruning stage - which is what makes the
+    # improvements attributed to NNLS correction and pruning directly
+    # comparable to one another (see README's "Scope and Future Work").
+    # A batch-independent (sample-level) split - via sklearn's
+    # GroupShuffleSplit/GroupKFold, keyed on "Oil_Type"/"Chips Type" - is
+    # a natural extension for validating generalization to entirely new
+    # preparation batches as the sample cohort grows in future studies.
+    X_train_raw, X_test_raw, y_train, y_test = train_test_split(
         X, y, test_size=TEST_SIZE, random_state=random_state, stratify=y
     )
+
+    # Column-wise (per-wavenumber) z-score normalization, fit on the
+    # training split only, applied identically for every dataset this
+    # pipeline runs on (pure oils, chips, and both NNLS-subtracted chip
+    # variants). See data.standardize_train_test's docstring for the full
+    # justification - equal per-mode weighting, why column- not row-wise,
+    # why this is a units/consistency change only for a Decision Tree,
+    # and the fit-on-train-only rationale - and
+    # tests/test_scaling_invariance.py for the proof that it cannot
+    # change predictions, accuracy, or feature-importance ranking, only
+    # the numeric units of reported split thresholds.
+    X_train, X_test = standardize_train_test(X_train_raw, X_test_raw)
+
     print("Shape of Training set : ", X_train.shape)
     print("Shape of test set : ", X_test.shape)
     print("Percentage of classes in training set:")
@@ -186,7 +241,13 @@ def _run_post_pruning(
     print(prepruned_model.get_n_leaves())
     print(prepruned_model.get_depth())
     for alpha in ccp_alphas:
-        probe = DecisionTreeClassifier(random_state=random_state, ccp_alpha=alpha)
+        # class_weight="balanced" here to match fit_pruned_tree_sequence
+        # and the final selected model below - this loop is a depth/leaf
+        # diagnostic only (its trees are never kept), but should still
+        # describe the same tree the rest of this stage actually uses.
+        probe = DecisionTreeClassifier(
+            random_state=random_state, ccp_alpha=alpha, class_weight="balanced"
+        )
         probe.fit(X_train, y_train)
         print(f"alpha={alpha:.6f}", "depth=", probe.get_depth(), "leaves=", probe.get_n_leaves())
 
