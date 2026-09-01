@@ -1,5 +1,27 @@
 # Decision Tree and K-Means Analysis of Raman Spectra for Edible Oils: A Physics-Informed AI Approach
 
+> Companion code and data repository for: Shaw, A., Chandrasekar, S. N., Muthukumar, S. V., Gupta, J., Kallepalli, D. L. N. (2026). *Decision Tree and K-Means Analysis of Raman Spectra for Edible Oils: A Physics-Informed AI Approach*. [arXiv:2608.20440](https://arxiv.org/abs/2608.20440) - see "Citation" below for the full reference.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [How to Navigate This Repository](#how-to-navigate-this-repository)
+- [Datasets](#datasets)
+- [Normalization and Standardization](#normalization-and-standardization)
+- [Reproducible Python Pipeline](#reproducible-python-pipeline)
+- [K-Means Clustering and t-SNE Analysis](#k-means-clustering-and-t-sne-analysis)
+- [Decision Tree Analysis](#decision-tree-analysis)
+- [Physics-Informed AI Using NNLS](#physics-informed-ai-using-nnls)
+- [Images Directory Reference](#images-directory-reference)
+- [Analysis Workflow](#analysis-workflow)
+- [Key Findings](#key-findings)
+- [Evaluation Methodology](#evaluation-methodology)
+- [Scope and Future Work](#scope-and-future-work)
+- [Reproducibility](#reproducibility)
+- [Citation](#citation)
+- [License](#license)
+- [Authors](#authors)
+
 ## Overview
 
 This repository contains the datasets, Jupyter notebooks, and generated figures used for Raman-spectroscopy-based analysis of edible oils in pure form and within fried-food (potato-chip) matrices.
@@ -119,6 +141,13 @@ python scripts/run_all.py
 The package pins random seeds and preserves the notebooks' data preparation,
 model parameters, metrics, confusion matrices, t-SNE coordinates, and output
 filenames. Run `pytest` to verify the numerical regression suite.
+
+It also fixes a portability gap in the original notebooks: their hardcoded
+Windows-style paths (e.g. `Images\Oils\...`) silently fail on macOS/Linux,
+where a backslash is just a character rather than a path separator. The
+package rebuilds every path with `pathlib` instead, so `scripts/run_all.py`
+and the individual scripts above produce identical output on Windows,
+macOS, and Linux.
 
 ## K-Means Clustering and t-SNE Analysis
 
